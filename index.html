@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Silk Cycle | Where Laundry is Refined</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #5a5a5a;
+        background: linear-gradient(135deg, #f5f3f0 0%, #ede8e3 100%);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+        background: rgba(245, 243, 240, 0.95);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 20px 0;
+        transition: all 0.3s ease;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-content {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: #6b5b73;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        color: #5a5a5a;
+        text-decoration: none;
+        font-weight: 300;
+        transition: color 0.3s ease;
+        letter-spacing: 1px;
+    }
+
+    .nav-links a:hover {
+        color: #8b7d6b;
+    }
+
+    /* Member Login Button */
+    .member-login {
+        background: linear-gradient(45deg, #8b7d6b, #a69080);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+    }
+
+    .member-login:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(139, 125, 107, 0.3);
+        color: white;
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(135deg, #f5f3f0 0%, #ede8e3 50%, #d4c4b0 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="%23ffffff" opacity="0.08"/><circle cx="40" cy="80" r="1" fill="%23ffffff" opacity="0.06"/></svg>');
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero h1 {
+        font-size: 4.5rem;
+        font-weight: 300;
+        color: #6b5b73;
+        margin-bottom: 20px;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        animation: fadeInUp 1s ease;
+    }
+
+    .hero-tagline {
+        font-size: 1.8rem;
+        color: #8b7d6b;
+        font-style: italic;
+        margin-bottom: 40px;
+        letter-spacing: 2px;
+        animation: fadeInUp 1s ease 0.3s both;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 15px 40px;
+        background: linear-gradient(45deg, #8b7d6b, #a69080);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+        animation: fadeInUp 1s ease 0.6s both;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(139, 125, 107, 0.3);
+    }
+
+    /* Services Section */
+    .services {
+        padding: 100px 0;
+        background: #f5f3f0;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 3rem;
+        color: #6b5b73;
+        margin-bottom: 60px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+    }
+
+    .service-card {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 40px 30px;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    .service-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        background: linear-gradient(45deg, #8b7d6b, #a69080);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+    }
+
+    .service-card h3 {
+        color: #6b5b73;
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+
+    /* Hours Section */
+    .hours {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #ede8e3 0%, #d4c4b0 100%);
+        text-align: center;
+    }
+
+    .hours-content {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 60px 40px;
+        border-radius: 30px;
+        backdrop-filter: blur(15px);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .hours h2 {
+        font-size: 2.5rem;
+        color: #6b5b73;
+        margin-bottom: 30px;
+        letter-spacing: 3px;
+    }
+
+    .hours-info {
+        font-size: 1.3rem;
+        color: #8b7d6b;
+        line-height: 2;
+    }
+
+    /* Contact Section */
+    .contact {
+        padding: 100px 0;
+        background: #f5f3f0;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .contact-info h2 {
+        font-size: 2.5rem;
+        color: #6b5b73;
+        margin-bottom: 30px;
+        letter-spacing: 2px;
+    }
+
+    .contact-details {
+        space-y: 20px;
+    }
+
+    .contact-details div {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        color: #8b7d6b;
+    }
+
+    .contact-form {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 40px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #6b5b73;
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid rgba(139, 125, 107, 0.2);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #8b7d6b;
+        background: white;
+    }
+
+    .submit-btn {
+        background: linear-gradient(45deg, #8b7d6b, #a69080);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(139, 125, 107, 0.3);
+    }
+
+    /* Footer */
+    footer {
+        background: #6b5b73;
+        color: white;
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .footer-logo {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .social-links a {
+        color: white;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: #d4c4b0;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 3rem;
+            letter-spacing: 4px;
+        }
+        
+        .hero-tagline {
+            font-size: 1.3rem;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+        }
+        
+        .nav-links {
+            display: none;
+        }
+        
+        .member-login {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+        }
+        
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .footer-content {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">The Silk Cycle</div>
+            <div class="nav-content">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#hours">Hours</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#" class="member-login" id="memberLoginBtn">Member Login</a>
+            </div>
+        </nav>
+    </header>
+
+```
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>The Silk Cycle</h1>
+        <p class="hero-tagline">Where Laundry is Refined</p>
+        <a href="#services" class="cta-button">Experience Excellence</a>
+    </div>
+</section>
+
+<section id="services" class="services">
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <p style="text-align: center; font-size: 1.2rem; color: #8b7d6b; max-width: 600px; margin: 0 auto;">
+            Where every wash is treated with the care and attention your finest garments deserve.
+        </p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🧺</div>
+                <h3>Self-Service Washing</h3>
+                <p>State-of-the-art commercial washers and dryers in a pristine, comfortable environment.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Premium Detergents</h3>
+                <p>Eco-friendly, luxury detergents that are gentle on fabrics yet powerful on stains.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🌿</div>
+                <h3>Fabric Care</h3>
+                <p>Specialized cycles for delicates, ensuring your most precious garments are protected.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🕒</div>
+                <h3>Extended Hours</h3>
+                <p>Open daily from 6 AM to midnight, fitting seamlessly into your busy schedule.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏆</div>
+                <h3>Clean Guarantee</h3>
+                <p>Immaculate facility maintained to the highest standards of cleanliness and hygiene.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">💳</div>
+                <h3>Member Card System</h3>
+                <p>Convenient prepaid card system - reload online, via mobile app, or on-site for seamless payments.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="hours" class="hours">
+    <div class="container">
+        <div class="hours-content">
+            <h2>Hours of Operation</h2>
+            <div class="hours-info">
+                <p><strong>Every Day</strong></p>
+                <p>6:00 AM - 12:00 AM</p>
+                <p style="margin-top: 20px; font-style: italic;">Central Standard Time</p>
+                <p style="margin-top: 30px; font-size: 1rem; color: #6b5b73;">
+                    We're here when you need us, seven days a week.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Visit Us Today</h2>
+                <div class="contact-details">
+                    <div>
+                        <strong>Address:</strong><br>
+                        123 Refined Street<br>
+                        Your City, State 12345
+                    </div>
+                    <div>
+                        <strong>Phone:</strong><br>
+                        (555) 123-4567
+                    </div>
+                    <div>
+                        <strong>Email:</strong><br>
+                        hello@thesilkcycle.com
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3 style="margin-bottom: 25px; color: #6b5b73;">Get In Touch</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">The Silk Cycle</div>
+            <p>&copy; 2025 The Silk Cycle. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">📘</a>
+                <a href="#">📷</a>
+                <a href="#">🐦</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(245, 243, 240, 0.98)';
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.background = 'rgba(245, 243, 240, 0.95)';
+            header.style.boxShadow = 'none';
+        }
+    });
+
+    // Contact form handling
+    document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We\'ll get back to you soon.');
+        this.reset();
+    });
+
+    // Member Login Modal (placeholder functionality)
+    document.getElementById('memberLoginBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Member login portal coming soon! Check your card balance and reload online, via our mobile app, or at any kiosk on-site.');
+    });
+</script>
+```
+
+</body>
+</html>
